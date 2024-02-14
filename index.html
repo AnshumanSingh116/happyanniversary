@@ -1,0 +1,115 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-size: 62.5%;
+  }
+  
+  body {
+    background-color: #8835f3;
+    font-family: "Protest Riot", sans-serif;
+  }
+  
+  .container {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+  }
+  
+  
+  .title {
+    font-size: 3.6rem;
+    color: #f53699;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+    .image-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image {
+      max-width: 500px; 
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 5px;
+      max-width: 900px; 
+      max-height: 500px; 
+    }
+
+    .button {
+      position: absolute;
+      bottom: 10px; 
+      left: 50%;
+      transform: translateX(-50%); 
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #ddd;
+      cursor: pointer;
+    }
+
+    
+  </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Anniversary Mummy Papa</h1>
+    </div>
+  <div class="image-container">
+    <img src="p-1.jpg" alt="Image 1" id="image" class="image">
+    <button id="change-button" class="button">Next</button>
+  </div>
+  <audio id="background-music" preload="auto">
+    <source src="music.mp4" type="audio/mpeg">
+  </audio>
+  <button id="play-button">.</button>
+
+  <script>
+    const music = document.getElementById('background-music');
+    const playButton = document.getElementById('play-button');
+
+    playButton.addEventListener('click', () => {
+      music.play();
+    });
+    window.onload = function() {
+      document.getElementById('play-button').focus();
+      document.getElementById('play-button').click();
+      document.getElementById('play-button').click();
+    };
+    const image = document.getElementById('image');
+    const button = document.getElementById('change-button');
+    let currentImage = 1;
+
+    button.addEventListener('click', () => {
+      currentImage++;
+      if (currentImage > 22) {
+        currentImage = 2;
+      }
+      const nextImageNumber = currentImage;
+      image.src = `p-${nextImageNumber}.jpg`;
+    });
+  </script>
+</body>
+</html>
